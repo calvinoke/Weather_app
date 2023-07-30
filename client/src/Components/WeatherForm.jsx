@@ -20,7 +20,7 @@ class WeatherForm extends Component {
     // Refreshes the current weather data for the most recent zip code, if it exists
     refreshSavedWeather = () => {
         if (localStorage.getItem("zipCode")) {
-            axios.post("/api/weather", {
+            axios.post("http://localhost:5000/api/weather", {
                 zipCode: localStorage.getItem("zipCode"),
                 tempMetric: localStorage.getItem("tempMetric")
             }).then(d => {
@@ -38,7 +38,7 @@ class WeatherForm extends Component {
         event.preventDefault();
 
         // Gets the weather data from the weather api and returns it to save into local storage and redux store.
-        axios.post("/api/weather", {
+        axios.post("http://localhost:5000/api/weather", {
             zipCode: this.state.zipCodeInput,
             tempMetric: this.state.tempMetric
         }).then(response => {
@@ -58,7 +58,7 @@ class WeatherForm extends Component {
     }
 
     saveToMongo = (event) => {
-        axios.post("/api/weatherMongo", {
+        axios.post("http://localhost:5000/api/weatherMongo", {
             zipCode: this.state.zipCodeInput,
             tempMetric: this.state.tempMetric
         }).then(response => {
