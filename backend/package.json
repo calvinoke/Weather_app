@@ -6,9 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "devo": "nodemon server.js",
-    "build": "npm install",
-    "client": "cd client && npm run start",
-    "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+    "build": "npm install"
+ 
   },
 
   "keywords": [],
