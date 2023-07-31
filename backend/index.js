@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const path = require('path');
+//const __dirname = path.resolve();
 
 
 const app = express();
@@ -19,10 +20,10 @@ const apis = require("./api");
 app.use("/api", apis);
 
 //static files
-//app.use(express.static(path.join(__dirname, "./client/build")));
-//pp.get("*", function (req,res) {
-    //res.sendFile(path.join(__dirname, "./client/build/index.html"));
-//});
+app.use(express.static(path.join(__dirname, "./client/build")));
+app.get("*", function (req,res) {
+    res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
 
 
 // Connect to Mongo DB Atlas
